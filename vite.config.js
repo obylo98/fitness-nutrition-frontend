@@ -11,6 +11,9 @@ export default defineConfig({
         target: process.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com",
         changeOrigin: true,
         secure: true,
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
         rewrite: (path) => path,
         configure: (proxy, _options) => {
           proxy.on("error", (err, _req, _res) => {

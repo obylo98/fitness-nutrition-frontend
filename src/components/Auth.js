@@ -144,8 +144,11 @@ export default class Auth {
       const response = await fetch(`${API_BASE_URL}/api/auth/signup`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
+        credentials: 'include',
+        mode: 'cors',
         body: JSON.stringify({
           username,
           email,
