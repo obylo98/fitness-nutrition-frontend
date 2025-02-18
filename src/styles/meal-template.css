@@ -1,0 +1,63 @@
+.meal-template-modal {
+  max-width: 600px;
+  width: 90%;
+}
+
+.template-container {
+  padding: 1.5rem;
+}
+
+.template-actions {
+  margin-bottom: 1rem;
+}
+
+.templates-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.template-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.template-info h4 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+}
+
+.template-stats {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.template-stats span {
+  margin-right: 1rem;
+}
+
+.template-form {
+  padding: 1rem;
+}
+
+.template-foods {
+  margin: 1rem 0;
+}
+
+.template-food-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.no-templates {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+} 

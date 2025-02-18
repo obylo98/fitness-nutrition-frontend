@@ -1,0 +1,151 @@
+.comparison-view {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-header {
+  margin-bottom: 2rem;
+}
+
+.comparison-header h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.period-selectors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.period-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.period-group label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.period-group input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.btn-compare {
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: fit-content;
+}
+
+.btn-compare:hover {
+  background-color: #2980b9;
+}
+
+.comparison-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.comparison-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.comparison-card h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.comparison-card.difference {
+  background-color: #edf2f7;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.insights-panel {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.insights-panel h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.insight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.insight-icon {
+  font-size: 1.2rem;
+}
+
+.insight-text {
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+.insight-item.positive .insight-text {
+  color: #2ecc71;
+}
+
+.insight-item.negative .insight-text {
+  color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+  .comparison-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .period-selectors {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-compare {
+    width: 100%;
+  }
+}

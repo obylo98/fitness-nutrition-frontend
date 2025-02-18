@@ -1,0 +1,91 @@
+.goals-modal {
+  max-width: 500px;
+}
+
+.goals-form {
+  padding: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.macro-distribution {
+  margin: 2rem 0;
+}
+
+.macro-distribution h4 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.distribution-bar {
+  display: flex;
+  height: 2rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.distribution-bar > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+  transition: width 0.3s ease;
+}
+
+.protein-bar {
+  background-color: #2ecc71;
+}
+
+.carbs-bar {
+  background-color: #3498db;
+}
+
+.fats-bar {
+  background-color: #f1c40f;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.error-message {
+  padding: 1rem;
+  background-color: #fee2e2;
+  color: #dc2626;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .distribution-bar > div {
+    font-size: 0.8rem;
+  }
+}

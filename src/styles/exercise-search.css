@@ -1,0 +1,141 @@
+.exercise-search {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.exercise-search-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background: #f8f9fa;
+}
+
+.exercise-info {
+  flex: 1;
+}
+
+.exercise-name {
+  display: block;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.exercise-category {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.view-details-btn {
+  padding: 0.4rem 0.8rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.exercise-detail-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+.exercise-media {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.exercise-media img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.exercise-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item .label {
+  font-weight: 500;
+  color: #666;
+}
+
+.exercise-instructions {
+  margin: 1rem 0;
+}
+
+.exercise-instructions h5 {
+  margin-bottom: 0.5rem;
+}
+
+.exercise-instructions ol {
+  padding-left: 1.2rem;
+}
+
+.exercise-instructions li {
+  margin-bottom: 0.5rem;
+}
+
+.attribution {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.select-exercise-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.select-exercise-btn:hover {
+  background: #45a049;
+} 
