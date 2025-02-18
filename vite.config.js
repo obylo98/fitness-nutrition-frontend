@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: ".",
+  base: '/',
   server: {
     port: 5173,
     cors: true,
@@ -9,7 +10,7 @@ export default defineConfig({
       "/api": {
         target: process.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com",
         changeOrigin: true,
-        secure: false,
+        secure: true,
         rewrite: (path) => path,
         configure: (proxy, _options) => {
           proxy.on("error", (err, _req, _res) => {

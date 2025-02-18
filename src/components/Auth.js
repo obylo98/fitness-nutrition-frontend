@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+import { API_BASE_URL } from '../config.js';
 
 export default class Auth {
   constructor(type = 'login') {
@@ -213,6 +213,77 @@ export default class Auth {
       }, 1500);
     } catch (error) {
       messageDiv.innerHTML = `<div class="error">${error.message}</div>`;
+    }
+  }
+
+  async login(email, password) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Login failed');
+      }
+
+      const data = await response.json();
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      return data;
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
+    }
+  }
+
+  async register(userData) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Registration failed');
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Registration error:', error);
+      throw error;
+    }
+  }
+
+  async verifyToken() {
+    const token = localStorage.getItem('token');
+    if (!token) return false;
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/auth/verify`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Token verification failed');
+      }
+
+      const data = await response.json();
+      return data.valid;
+    } catch (error) {
+      console.error('Token verification error:', error);
+      return false;
     }
   }
 }

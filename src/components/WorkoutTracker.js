@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+import { API_BASE_URL } from '../config.js';
 
 export default class WorkoutTracker {
   constructor() {
@@ -150,7 +150,7 @@ export default class WorkoutTracker {
       if (startDate) params.append('startDate', startDate);
       if (endDate) params.append('endDate', endDate);
 
-      const url = `${API_BASE_URL}/workout/logs?${params.toString()}`;
+      const url = `${API_BASE_URL}/api/workout/logs?${params.toString()}`;
       console.log('Fetching workouts from:', url); // Debug log
 
       const response = await fetch(url, {
@@ -313,7 +313,7 @@ export default class WorkoutTracker {
   async deleteWorkout(id) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/workout/log/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/workout/log/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

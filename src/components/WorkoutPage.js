@@ -1,3 +1,5 @@
+import { API_BASE_URL } from '../config.js';
+
 export default class WorkoutPage {
   constructor() {
     this.render();
@@ -88,5 +90,22 @@ export default class WorkoutPage {
 
   addEventListeners() {
     // Add your event listeners here
+  }
+
+  async fetchWorkoutStats() {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`${API_BASE_URL}/api/workout/stats`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) throw new Error('Failed to fetch workout stats');
+      const stats = await response.json();
+      this.updateStats(stats);
+    } catch (error) {
+      console.error('Error fetching workout stats:', error);
+    }
   }
 } 
