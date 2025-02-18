@@ -1,3 +1,5 @@
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+
 export default class MealTemplate {
   constructor(onApply) {
     this.onApply = onApply;
@@ -95,7 +97,7 @@ export default class MealTemplate {
   async loadTemplates() {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/nutrition/templates", {
+      const response = await fetch(`${API_BASE_URL}/nutrition/templates`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -204,7 +206,7 @@ export default class MealTemplate {
       };
 
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/nutrition/templates", {
+      const response = await fetch(`${API_BASE_URL}/nutrition/templates`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -247,7 +249,7 @@ export default class MealTemplate {
   async applyTemplate(templateId) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`/api/nutrition/templates/${templateId}`, {
+      const response = await fetch(`${API_BASE_URL}/nutrition/templates/${templateId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -270,7 +272,7 @@ export default class MealTemplate {
     if (confirm("Are you sure you want to delete this template?")) {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`/api/nutrition/templates/${templateId}`, {
+        const response = await fetch(`${API_BASE_URL}/nutrition/templates/${templateId}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`

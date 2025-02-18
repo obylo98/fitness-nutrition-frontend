@@ -1,5 +1,7 @@
 import ProgressChart from "./ProgressChart.js";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+
 export default class ProgressTracker {
   constructor() {
     this.render();
@@ -76,7 +78,7 @@ export default class ProgressTracker {
   async loadData(timeRange = "month") {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`/api/progress?range=${timeRange}`, {
+      const response = await fetch(`${API_BASE_URL}/progress?range=${timeRange}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

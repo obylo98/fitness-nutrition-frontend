@@ -1,3 +1,5 @@
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+
 export default class NutritionGoals {
   constructor(onUpdate) {
     this.onUpdate = onUpdate;
@@ -8,7 +10,7 @@ export default class NutritionGoals {
   async loadGoals() {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/nutrition/goals", {
+      const response = await fetch(`${API_BASE_URL}/nutrition/goals`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -103,7 +105,7 @@ export default class NutritionGoals {
       };
 
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/nutrition/goals", {
+      const response = await fetch(`${API_BASE_URL}/nutrition/goals`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,6 +1,8 @@
 import { jsPDF } from "jspdf";
 import * as XLSX from "xlsx";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+
 export default class DataExporter {
   constructor() {
     this.dateFormat = new Intl.DateTimeFormat("en-US", {
@@ -13,7 +15,7 @@ export default class DataExporter {
   async exportWorkouts(format = "csv") {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/workouts/export", {
+      const response = await fetch(`${API_BASE_URL}/workouts/export`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -184,7 +186,7 @@ export default class DataExporter {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `/api/compare/${type}?period1=${period1}&period2=${period2}`,
+        `${API_BASE_URL}/compare/${type}?period1=${period1}&period2=${period2}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

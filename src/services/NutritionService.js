@@ -1,6 +1,7 @@
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
 export default class NutritionService {
   constructor() {
-    this.baseUrl = "/api/nutrition"; // Use our backend as proxy
+    this.baseUrl = `${API_BASE_URL}/nutrition`;
   }
 
   async searchFoods(query) {

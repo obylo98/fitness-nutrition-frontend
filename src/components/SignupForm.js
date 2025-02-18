@@ -1,3 +1,5 @@
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+
 export default class SignupForm {
   constructor() {
     this.render();
@@ -110,7 +112,7 @@ export default class SignupForm {
     }
 
     try {
-      const response = await fetch('/api/auth/signup', {
+      const response = await fetch(`${API_BASE_URL}/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

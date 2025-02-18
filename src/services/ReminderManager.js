@@ -1,5 +1,7 @@
 import NotificationService from "./NotificationService.js";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+
 export default class ReminderManager {
   constructor() {
     this.notificationService = new NotificationService();
@@ -17,7 +19,7 @@ export default class ReminderManager {
         return;
       }
 
-      const response = await fetch("/api/user/reminders", {
+      const response = await fetch(`${API_BASE_URL}/user/reminders`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -87,7 +89,7 @@ export default class ReminderManager {
   async updateReminders(workoutTime, nutritionTime) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/user/reminders", {
+      const response = await fetch(`${API_BASE_URL}/user/reminders`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -133,7 +135,7 @@ export default class ReminderManager {
   async loadWeeklyStats() {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/user/weekly-stats", {
+      const response = await fetch(`${API_BASE_URL}/user/weekly-stats`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -157,7 +159,7 @@ export default class ReminderManager {
   async checkInactivity() {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/user/last-workout", {
+      const response = await fetch(`${API_BASE_URL}/user/last-workout`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

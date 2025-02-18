@@ -1,3 +1,5 @@
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+
 export default class Workout {
   constructor() {
     this.render();
@@ -148,7 +150,7 @@ export default class Workout {
       searchResults.classList.remove('hidden');
 
       const token = localStorage.getItem('token');
-      const response = await fetch(`/api/workout/exercises/search?query=${encodeURIComponent(query)}`, {
+      const response = await fetch(`${API_BASE_URL}/workout/exercises/search?query=${encodeURIComponent(query)}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -450,7 +452,7 @@ export default class Workout {
       console.log('Sending workout data:', workoutData);
 
       const token = localStorage.getItem('token');
-      const response = await fetch('/api/workout/log', {
+      const response = await fetch(`${API_BASE_URL}/workout/log`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

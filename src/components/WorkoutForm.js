@@ -1,5 +1,7 @@
 import ExerciseSearch from "./ExerciseSearch.js";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+
 export default class WorkoutForm {
   constructor(onSave) {
     this.onSave = onSave;
@@ -177,7 +179,7 @@ export default class WorkoutForm {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/workout/log", {
+      const response = await fetch(`${API_BASE_URL}/workout/log`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
