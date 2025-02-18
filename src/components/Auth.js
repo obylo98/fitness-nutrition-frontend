@@ -145,10 +145,11 @@ export default class Auth {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Origin': window.location.origin
         },
-        credentials: 'include',
         mode: 'cors',
+        credentials: 'omit',
         body: JSON.stringify({
           username,
           email,
@@ -191,8 +192,12 @@ export default class Auth {
       const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Origin': window.location.origin
         },
+        mode: 'cors',
+        credentials: 'omit',
         body: JSON.stringify(data),
       });
 
@@ -224,8 +229,12 @@ export default class Auth {
       const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Origin': window.location.origin
         },
+        mode: 'cors',
+        credentials: 'omit',
         body: JSON.stringify({ email, password })
       });
 
@@ -249,8 +258,12 @@ export default class Auth {
       const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Origin': window.location.origin
         },
+        mode: 'cors',
+        credentials: 'omit',
         body: JSON.stringify(userData)
       });
 
@@ -274,8 +287,13 @@ export default class Auth {
     try {
       const response = await fetch(`${API_BASE_URL}/api/auth/verify`, {
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Origin': window.location.origin
+        },
+        mode: 'cors',
+        credentials: 'omit'
       });
 
       if (!response.ok) {
