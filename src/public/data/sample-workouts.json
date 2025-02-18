@@ -1,0 +1,149 @@
+{
+  "workouts": [
+    {
+      "id": "w1",
+      "name": "Full Body Strength",
+      "date": "2024-02-19",
+      "duration": 60,
+      "calories": 450,
+      "notes": "Felt strong today, increased weights on all exercises",
+      "exercises": [
+        {
+          "exercise_name": "Barbell Bench Press",
+          "sets": 4,
+          "reps": 10,
+          "weight": 70,
+          "completed_sets": 4,
+          "bodyPart": "chest",
+          "equipment": "barbell",
+          "target": "pectorals"
+        },
+        {
+          "exercise_name": "Deadlift",
+          "sets": 3,
+          "reps": 8,
+          "weight": 100,
+          "completed_sets": 3,
+          "bodyPart": "back",
+          "equipment": "barbell",
+          "target": "lower back"
+        },
+        {
+          "exercise_name": "Squats",
+          "sets": 4,
+          "reps": 12,
+          "weight": 85,
+          "completed_sets": 4,
+          "bodyPart": "legs",
+          "equipment": "barbell",
+          "target": "quadriceps"
+        }
+      ]
+    },
+    {
+      "id": "w2",
+      "name": "HIIT Cardio",
+      "date": "2024-02-18",
+      "duration": 30,
+      "calories": 300,
+      "notes": "Intense session, kept rest periods short",
+      "exercises": [
+        {
+          "exercise_name": "Burpees",
+          "sets": 3,
+          "reps": 15,
+          "completed_sets": 3,
+          "bodyPart": "full body",
+          "equipment": "bodyweight",
+          "target": "cardiovascular"
+        },
+        {
+          "exercise_name": "Mountain Climbers",
+          "sets": 3,
+          "reps": 30,
+          "completed_sets": 3,
+          "bodyPart": "core",
+          "equipment": "bodyweight",
+          "target": "cardiovascular"
+        },
+        {
+          "exercise_name": "Jump Rope",
+          "sets": 4,
+          "reps": 50,
+          "completed_sets": 4,
+          "bodyPart": "full body",
+          "equipment": "jump rope",
+          "target": "cardiovascular"
+        }
+      ]
+    },
+    {
+      "id": "w3",
+      "name": "Upper Body Focus",
+      "date": "2024-02-17",
+      "duration": 45,
+      "calories": 350,
+      "notes": "Great pump in arms and shoulders",
+      "exercises": [
+        {
+          "exercise_name": "Pull-ups",
+          "sets": 4,
+          "reps": 8,
+          "completed_sets": 4,
+          "bodyPart": "back",
+          "equipment": "bodyweight",
+          "target": "latissimus"
+        },
+        {
+          "exercise_name": "Dumbbell Shoulder Press",
+          "sets": 3,
+          "reps": 12,
+          "weight": 20,
+          "completed_sets": 3,
+          "bodyPart": "shoulders",
+          "equipment": "dumbbells",
+          "target": "deltoids"
+        },
+        {
+          "exercise_name": "Tricep Pushdowns",
+          "sets": 3,
+          "reps": 15,
+          "weight": 25,
+          "completed_sets": 3,
+          "bodyPart": "arms",
+          "equipment": "cable",
+          "target": "triceps"
+        }
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e1",
+      "name": "Barbell Bench Press",
+      "bodyPart": "chest",
+      "equipment": "barbell",
+      "target": "pectorals",
+      "gifUrl": "https://api.exercisedb.io/image/bench-press.gif",
+      "instructions": "1. Lie on a flat bench\n2. Grip the barbell with hands slightly wider than shoulder width\n3. Lower the bar to your chest\n4. Press the bar back up to starting position"
+    },
+    {
+      "id": "e2",
+      "name": "Squats",
+      "bodyPart": "legs",
+      "equipment": "barbell",
+      "target": "quadriceps",
+      "gifUrl": "https://api.exercisedb.io/image/squat.gif",
+      "instructions": "1. Stand with feet shoulder-width apart\n2. Lower your body as if sitting back into a chair\n3. Keep chest up and back straight\n4. Return to starting position"
+    },
+    {
+      "id": "e3",
+      "name": "Pull-ups",
+      "bodyPart": "back",
+      "equipment": "bodyweight",
+      "target": "latissimus",
+      "gifUrl": "https://api.exercisedb.io/image/pullup.gif",
+      "instructions": "1. Hang from pull-up bar with hands wider than shoulders\n2. Pull yourself up until chin clears the bar\n3. Lower yourself back down with control"
+    }
+  ]
+} 

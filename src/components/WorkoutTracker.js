@@ -158,9 +158,11 @@ export default class WorkoutTracker {
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ message: `HTTP error! status: ${response.status}` }));
-        console.error('Server response:', errorData); // Debug log
-        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+        // Fallback to local data if API fails
+        console.log('API failed, falling back to local data');
+        const localResponse = await fetch('/data/sample-workouts.json');
+        const localData = await localResponse.json();
+        return localData.workouts;
       }
 
       const workouts = await response.json();
@@ -191,16 +193,24 @@ export default class WorkoutTracker {
 
     } catch (error) {
       console.error("Error loading workouts:", error);
-      workoutList.innerHTML = `
-        <div class="error-state">
-          <i class="fas fa-exclamation-circle"></i>
-          <h3>Unable to Load Workouts</h3>
-          <p>${error.message}</p>
-          <button class="retry-button" onclick="this.loadWorkoutHistory()">
-            <i class="fas fa-redo"></i> Try Again
-          </button>
-        </div>
-      `;
+      // Fallback to local data
+      try {
+        const localResponse = await fetch('/data/sample-workouts.json');
+        const localData = await localResponse.json();
+        this.displayWorkouts(localData.workouts);
+        this.updateStats(localData.workouts);
+      } catch (fallbackError) {
+        workoutList.innerHTML = `
+          <div class="error-state">
+            <i class="fas fa-exclamation-circle"></i>
+            <h3>Unable to Load Workouts</h3>
+            <p>${error.message}</p>
+            <button class="retry-button" onclick="this.loadWorkoutHistory()">
+              <i class="fas fa-redo"></i> Try Again
+            </button>
+          </div>
+        `;
+      }
     }
   }
 
