@@ -1,6 +1,6 @@
 import ProgressChart from "./ProgressChart.js";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+import { API_BASE_URL } from '../config.js';
 export default class ComparisonView {
   constructor(container, metric) {
     this.container = container;
@@ -112,7 +112,7 @@ export default class ComparisonView {
   async fetchComparisonData(start1, end1, start2, end2) {
     const token = localStorage.getItem("token");
     const response = await fetch(
-      `${API_BASE_URL}/metrics/${this.metric}/compare?start1=${start1}&end1=${end1}&start2=${start2}&end2=${end2}`,
+      `${API_BASE_URL}/api/metrics/${this.metric}/compare?start1=${start1}&end1=${end1}&start2=${start2}&end2=${end2}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

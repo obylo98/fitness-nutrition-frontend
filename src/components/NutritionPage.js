@@ -3,7 +3,7 @@ import NutritionGoals from "./NutritionGoals.js";
 import MealTemplate from "./MealTemplate.js";
 import NutritionRecommendations from "./NutritionRecommendations.js";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+import { API_BASE_URL } from '../config.js';
 
 export default class NutritionPage {
   constructor() {
@@ -247,7 +247,7 @@ export default class NutritionPage {
       const token = localStorage.getItem("token");
       const today = new Date().toISOString().split("T")[0];
 
-      const response = await fetch(`${API_BASE_URL}/nutrition/logs/${today}`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/logs/${today}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -351,7 +351,7 @@ export default class NutritionPage {
         }
       };
 
-      const response = await fetch(`${API_BASE_URL}/nutrition/log`, {  // Note: changed from /logs to /log
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/log`, {  // Note: changed from /logs to /log
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -375,7 +375,7 @@ export default class NutritionPage {
     if (confirm("Are you sure you want to delete this food log?")) {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`${API_BASE_URL}/nutrition/logs/${logId}`, {
+        const response = await fetch(`${API_BASE_URL}/api/nutrition/logs/${logId}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,

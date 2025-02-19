@@ -1,7 +1,7 @@
 import ProgressChart from "./ProgressChart.js";
 import DataExporter from "../services/DataExporter.js";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+import { API_BASE_URL } from '../config.js';
 
 export default class MetricBreakdown {
   constructor(container, metric) {
@@ -98,7 +98,7 @@ export default class MetricBreakdown {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `${API_BASE_URL}/metrics/${this.metric}?period=${period}`,
+        `${API_BASE_URL}/api/metrics/${this.metric}?period=${period}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -1,6 +1,6 @@
 import PasswordChangeModal from "./PasswordChangeModal.js";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+import { API_BASE_URL } from '../config.js';
 
 export default class Profile {
   constructor() {
@@ -239,7 +239,7 @@ export default class Profile {
       profileForm.classList.add('hidden');
 
       const token = localStorage.getItem('token');
-      const response = await fetch(`${API_BASE_URL}/user/profile`, {
+      const response = await fetch(`${API_BASE_URL}/api/user/profile`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Cache-Control': 'no-cache',  // Prevent 304 responses
@@ -310,7 +310,7 @@ export default class Profile {
   async loadUserStats() {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/user/stats`, {
+      const response = await fetch(`${API_BASE_URL}/api/user/stats`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -389,7 +389,7 @@ export default class Profile {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${API_BASE_URL}/user/profile`, {
+      const response = await fetch(`${API_BASE_URL}/api/user/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -432,7 +432,7 @@ export default class Profile {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/user/preferences`, {
+      const response = await fetch(`${API_BASE_URL}/api/user/preferences`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -472,7 +472,7 @@ export default class Profile {
     ) {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`${API_BASE_URL}/user/account`, {
+        const response = await fetch(`${API_BASE_URL}/api/user/account`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,

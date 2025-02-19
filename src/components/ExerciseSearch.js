@@ -1,5 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
-
+import { API_BASE_URL } from '../config.js';
 export default class ExerciseSearch {
   constructor(onSelect) {
     this.onSelect = onSelect;
@@ -59,7 +58,7 @@ export default class ExerciseSearch {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `${API_BASE_URL}/workout/exercises/search?query=${encodeURIComponent(query)}`,
+        `${API_BASE_URL}/api/workout/exercises/search?query=${encodeURIComponent(query)}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

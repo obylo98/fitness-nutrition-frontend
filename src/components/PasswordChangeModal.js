@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+import { API_BASE_URL } from '../config.js';
 
 export default class PasswordChangeModal {
   constructor(onSuccess) {
@@ -87,7 +87,7 @@ export default class PasswordChangeModal {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/user/password`, {
+      const response = await fetch(`${API_BASE_URL}/api/user/password`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

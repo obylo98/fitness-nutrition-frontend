@@ -2,7 +2,7 @@ import GoalsModal from "./GoalsModal.js";
 import FoodSearch from "./FoodSearch.js";
 import NutritionGoals from "./NutritionGoals.js";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
+import { API_BASE_URL } from '../config.js';
 
 export default class NutritionTracker {
   constructor() {
@@ -116,7 +116,7 @@ export default class NutritionTracker {
   async loadDailyLogs(date = this.formatDate(new Date())) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/logs/${date}`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/logs/${date}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -197,7 +197,7 @@ export default class NutritionTracker {
   async addFood(food, meal) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/logs`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/logs`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -221,7 +221,7 @@ export default class NutritionTracker {
   async removeFood(id) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/logs/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/logs/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -266,7 +266,7 @@ export default class NutritionTracker {
     this.searchTimeout = setTimeout(async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`${API_BASE_URL}/nutrition/search/${query}`, {
+        const response = await fetch(`${API_BASE_URL}/api/nutrition/search/${query}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -317,7 +317,7 @@ export default class NutritionTracker {
   async logFood(foodData) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/log`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/log`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -351,7 +351,7 @@ export default class NutritionTracker {
     try {
       const date = document.getElementById("log-date").value;
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/logs/${date}`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/logs/${date}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -426,7 +426,7 @@ export default class NutritionTracker {
   async loadNutritionGoals() {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/goals`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/goals`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -461,7 +461,7 @@ export default class NutritionTracker {
   async deleteEntry(id) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/log/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/log/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -487,7 +487,7 @@ export default class NutritionTracker {
   async showGoalsModal() {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/goals`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/goals`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -508,7 +508,7 @@ export default class NutritionTracker {
   async saveGoals(goals) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/goals`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/goals`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

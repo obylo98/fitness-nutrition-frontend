@@ -1,5 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fitness-nutrition-backend.onrender.com";
-
+import { API_BASE_URL } from '../config.js';
 export default class FoodSearch {
   constructor(onSelect) {
     this.onSelect = onSelect;
@@ -78,7 +77,7 @@ export default class FoodSearch {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/search?query=${encodeURIComponent(query)}`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/search?query=${encodeURIComponent(query)}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -155,7 +154,7 @@ export default class FoodSearch {
   async handleFoodSelect(foodData) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/nutrition/nutrients`, {
+      const response = await fetch(`${API_BASE_URL}/api/nutrition/nutrients`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
